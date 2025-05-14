@@ -28,6 +28,9 @@ app.use('/api', rutasVentas);
 app.use('/api', rutasCompras);
 app.use('/api', rutasTipos);
 
+app.use(express.json({ limit: '10mb' })); // Aumenta a 10 MB
+app.use(express.urlencoded({ limit: '10mb', extended: true }));
+
 // Manejo de rutas no encontradas
 app.use((req, res) => {
     res.status(404).json({
